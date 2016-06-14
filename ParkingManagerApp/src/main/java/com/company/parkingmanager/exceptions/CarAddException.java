@@ -18,5 +18,4 @@ public class CarAddException extends RuntimeException {
 	public String getErrorDetails() {
 		return errorDetails;
 	}
-
 }
