@@ -6,21 +6,21 @@
 
 	<session-factory>
 		<property name="hibernate.dialect">
-			org.hibernate.dialect.Oracle10gDialect
+			org.hibernate.dialect.MySQLDialect
 		</property>
 		<property name="hibernate.connection.driver_class">
-			oracle.jdbc.OracleDriver
+			 com.mysql.jdbc.Driver
 		</property>
 
 		<!-- Assume students is the database name -->
 		<property name="hibernate.connection.url">
-			jdbc:oracle:thin:@localhost:1521:ORCL
+			jdbc:mysql://localhost:3306/parking_manager
 		</property>
 		<property name="hibernate.connection.username">
-			sys as sysdba
+			root
 		</property>
 		<property name="hibernate.connection.password">
-			oracle
+			root
 		</property>
 		<property name="hibernate.show_sql">true</property>
 
