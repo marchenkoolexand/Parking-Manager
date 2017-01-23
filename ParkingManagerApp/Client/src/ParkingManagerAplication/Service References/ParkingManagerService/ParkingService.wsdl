@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://parkingmanager.com" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ParkingService" targetNamespace="http://parkingmanager.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://parkingmanager.com" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="addData" type="tns:addData" />
+      <xs:element name="addDataResponse" type="tns:addDataResponse" />
+      <xs:element name="addNewCar" type="tns:addNewCar" />
+      <xs:element name="addNewCarResponse" type="tns:addNewCarResponse" />
+      <xs:element name="addNewGarage" type="tns:addNewGarage" />
+      <xs:element name="addNewGarageResponse" type="tns:addNewGarageResponse" />
+      <xs:element name="addNewOwner" type="tns:addNewOwner" />
+      <xs:element name="addNewOwnerResponse" type="tns:addNewOwnerResponse" />
+      <xs:element name="deleteCar" type="tns:deleteCar" />
+      <xs:element name="deleteCarResponse" type="tns:deleteCarResponse" />
+      <xs:element name="deleteGarage" type="tns:deleteGarage" />
+      <xs:element name="deleteGarageResponse" type="tns:deleteGarageResponse" />
+      <xs:element name="deleteOwner" type="tns:deleteOwner" />
+      <xs:element name="deleteOwnerResponse" type="tns:deleteOwnerResponse" />
+      <xs:element name="garage" type="tns:garage" />
+      <xs:element name="loadAllData" type="tns:loadAllData" />
+      <xs:element name="loadAllDataResponse" type="tns:loadAllDataResponse" />
+      <xs:element name="loadCar" type="tns:loadCar" />
+      <xs:element name="loadCarResponse" type="tns:loadCarResponse" />
+      <xs:element name="loadGarage" type="tns:loadGarage" />
+      <xs:element name="loadGarageResponse" type="tns:loadGarageResponse" />
+      <xs:element name="loadOwner" type="tns:loadOwner" />
+      <xs:element name="loadOwnerResponse" type="tns:loadOwnerResponse" />
+      <xs:element name="updateCar" type="tns:updateCar" />
+      <xs:element name="updateCarResponse" type="tns:updateCarResponse" />
+      <xs:element name="updateGarage" type="tns:updateGarage" />
+      <xs:element name="updateGarageResponse" type="tns:updateGarageResponse" />
+      <xs:element name="updateOwner" type="tns:updateOwner" />
+      <xs:element name="updateOwnerResponse" type="tns:updateOwnerResponse" />
+      <xs:complexType name="addData">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="addDataResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="deleteOwner">
+        <xs:sequence>
+          <xs:element name="ownerId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteOwnerResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="loadAllData">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="loadAllDataResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:garage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="garage">
+        <xs:sequence>
+          <xs:element name="building_number" type="xs:int" />
+          <xs:element maxOccurs="unbounded" name="cars" type="tns:car" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="id" type="xs:int" />
+          <xs:element name="street" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="car">
+        <xs:sequence>
+          <xs:element name="brand" type="xs:string" />
+          <xs:element name="color" type="xs:string" />
+          <xs:element name="id" type="xs:int" />
+          <xs:element name="model" type="xs:string" />
+          <xs:element name="owner" type="tns:owner" />
+          <xs:element name="plate_number" type="xs:string" />
+          <xs:element name="year" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="owner">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="surname" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addNewGarage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="street" type="xs:string" />
+          <xs:element name="buildingNumber" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addNewGarageResponse">
+        <xs:sequence>
+          <xs:element name="addNewGarageOutput" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addNewCar">
+        <xs:sequence>
+          <xs:element name="garageId" type="xs:int" />
+          <xs:element minOccurs="0" name="brand" type="xs:string" />
+          <xs:element minOccurs="0" name="model" type="xs:string" />
+          <xs:element name="year" type="xs:int" />
+          <xs:element minOccurs="0" name="color" type="xs:string" />
+          <xs:element minOccurs="0" name="plateNumber" type="xs:string" />
+          <xs:element name="ownerId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addNewCarResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateOwner">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="field" type="xs:string" />
+          <xs:element minOccurs="0" name="newData" type="xs:string" />
+          <xs:element name="ownerID" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateOwnerResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateCar">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="field" type="xs:string" />
+          <xs:element minOccurs="0" name="newData" type="xs:string" />
+          <xs:element name="carID" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateCarResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateGarage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="field" type="xs:string" />
+          <xs:element minOccurs="0" name="newData" type="xs:string" />
+          <xs:element name="garageId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateGarageResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteGarage">
+        <xs:sequence>
+          <xs:element name="garageId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteGarageResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="loadCar">
+        <xs:sequence>
+          <xs:element name="carId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loadCarResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Car" type="tns:car" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loadOwner">
+        <xs:sequence>
+          <xs:element name="ownerId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loadOwnerResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Owner" type="tns:owner" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loadGarage">
+        <xs:sequence>
+          <xs:element name="garageId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loadGarageResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Garage" type="tns:garage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addNewOwner">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="surname" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addNewOwnerResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteCar">
+        <xs:sequence>
+          <xs:element name="carId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteCarResponse">
+        <xs:sequence />
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="deleteOwner">
+    <wsdl:part name="parameters" element="tns:deleteOwner" />
+  </wsdl:message>
+  <wsdl:message name="updateCarResponse">
+    <wsdl:part name="parameters" element="tns:updateCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateOwnerResponse">
+    <wsdl:part name="parameters" element="tns:updateOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="addNewGarage">
+    <wsdl:part name="parameters" element="tns:addNewGarage" />
+  </wsdl:message>
+  <wsdl:message name="addNewOwnerResponse">
+    <wsdl:part name="parameters" element="tns:addNewOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateOwner">
+    <wsdl:part name="parameters" element="tns:updateOwner" />
+  </wsdl:message>
+  <wsdl:message name="updateCar">
+    <wsdl:part name="parameters" element="tns:updateCar" />
+  </wsdl:message>
+  <wsdl:message name="addDataResponse">
+    <wsdl:part name="parameters" element="tns:addDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteGarage">
+    <wsdl:part name="parameters" element="tns:deleteGarage" />
+  </wsdl:message>
+  <wsdl:message name="loadCar">
+    <wsdl:part name="parameters" element="tns:loadCar" />
+  </wsdl:message>
+  <wsdl:message name="loadOwner">
+    <wsdl:part name="parameters" element="tns:loadOwner" />
+  </wsdl:message>
+  <wsdl:message name="loadCarResponse">
+    <wsdl:part name="parameters" element="tns:loadCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="addNewOwner">
+    <wsdl:part name="parameters" element="tns:addNewOwner" />
+  </wsdl:message>
+  <wsdl:message name="addNewGarageResponse">
+    <wsdl:part name="parameters" element="tns:addNewGarageResponse" />
+  </wsdl:message>
+  <wsdl:message name="addData">
+    <wsdl:part name="parameters" element="tns:addData" />
+  </wsdl:message>
+  <wsdl:message name="addNewCarResponse">
+    <wsdl:part name="parameters" element="tns:addNewCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteCarResponse">
+    <wsdl:part name="parameters" element="tns:deleteCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="loadAllData">
+    <wsdl:part name="parameters" element="tns:loadAllData" />
+  </wsdl:message>
+  <wsdl:message name="loadAllDataResponse">
+    <wsdl:part name="parameters" element="tns:loadAllDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteGarageResponse">
+    <wsdl:part name="parameters" element="tns:deleteGarageResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteOwnerResponse">
+    <wsdl:part name="parameters" element="tns:deleteOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="addNewCar">
+    <wsdl:part name="parameters" element="tns:addNewCar" />
+  </wsdl:message>
+  <wsdl:message name="loadGarageResponse">
+    <wsdl:part name="parameters" element="tns:loadGarageResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateGarage">
+    <wsdl:part name="parameters" element="tns:updateGarage" />
+  </wsdl:message>
+  <wsdl:message name="updateGarageResponse">
+    <wsdl:part name="parameters" element="tns:updateGarageResponse" />
+  </wsdl:message>
+  <wsdl:message name="loadGarage">
+    <wsdl:part name="parameters" element="tns:loadGarage" />
+  </wsdl:message>
+  <wsdl:message name="loadOwnerResponse">
+    <wsdl:part name="parameters" element="tns:loadOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteCar">
+    <wsdl:part name="parameters" element="tns:deleteCar" />
+  </wsdl:message>
+  <wsdl:portType name="ParkingAppManager">
+    <wsdl:operation name="addData">
+      <wsdl:input name="addData" message="tns:addData" />
+      <wsdl:output name="addDataResponse" message="tns:addDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteOwner">
+      <wsdl:input name="deleteOwner" message="tns:deleteOwner" />
+      <wsdl:output name="deleteOwnerResponse" message="tns:deleteOwnerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="loadAllData">
+      <wsdl:input name="loadAllData" message="tns:loadAllData" />
+      <wsdl:output name="loadAllDataResponse" message="tns:loadAllDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addNewGarage">
+      <wsdl:input name="addNewGarage" message="tns:addNewGarage" />
+      <wsdl:output name="addNewGarageResponse" message="tns:addNewGarageResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addNewCar">
+      <wsdl:input name="addNewCar" message="tns:addNewCar" />
+      <wsdl:output name="addNewCarResponse" message="tns:addNewCarResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateOwner">
+      <wsdl:input name="updateOwner" message="tns:updateOwner" />
+      <wsdl:output name="updateOwnerResponse" message="tns:updateOwnerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCar">
+      <wsdl:input name="updateCar" message="tns:updateCar" />
+      <wsdl:output name="updateCarResponse" message="tns:updateCarResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateGarage">
+      <wsdl:input name="updateGarage" message="tns:updateGarage" />
+      <wsdl:output name="updateGarageResponse" message="tns:updateGarageResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteGarage">
+      <wsdl:input name="deleteGarage" message="tns:deleteGarage" />
+      <wsdl:output name="deleteGarageResponse" message="tns:deleteGarageResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="loadCar">
+      <wsdl:input name="loadCar" message="tns:loadCar" />
+      <wsdl:output name="loadCarResponse" message="tns:loadCarResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="loadOwner">
+      <wsdl:input name="loadOwner" message="tns:loadOwner" />
+      <wsdl:output name="loadOwnerResponse" message="tns:loadOwnerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="loadGarage">
+      <wsdl:input name="loadGarage" message="tns:loadGarage" />
+      <wsdl:output name="loadGarageResponse" message="tns:loadGarageResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addNewOwner">
+      <wsdl:input name="addNewOwner" message="tns:addNewOwner" />
+      <wsdl:output name="addNewOwnerResponse" message="tns:addNewOwnerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteCar">
+      <wsdl:input name="deleteCar" message="tns:deleteCar" />
+      <wsdl:output name="deleteCarResponse" message="tns:deleteCarResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ParkingServiceSoapBinding" type="tns:ParkingAppManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addData">
+      <soap:operation soapAction="add_sample_data" style="document" />
+      <wsdl:input name="addData">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteOwner">
+      <soap:operation soapAction="deleteOwner" style="document" />
+      <wsdl:input name="deleteOwner">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteOwnerResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadAllData">
+      <soap:operation soapAction="load_all_data" style="document" />
+      <wsdl:input name="loadAllData">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="loadAllDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addNewGarage">
+      <soap:operation soapAction="add_new_garage" style="document" />
+      <wsdl:input name="addNewGarage">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addNewGarageResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addNewCar">
+      <soap:operation soapAction="add_new_car_to_garage" style="document" />
+      <wsdl:input name="addNewCar">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addNewCarResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateOwner">
+      <soap:operation soapAction="update_owner" style="document" />
+      <wsdl:input name="updateOwner">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateOwnerResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCar">
+      <soap:operation soapAction="update_car" style="document" />
+      <wsdl:input name="updateCar">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateCarResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateGarage">
+      <soap:operation soapAction="update_garage" style="document" />
+      <wsdl:input name="updateGarage">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateGarageResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteGarage">
+      <soap:operation soapAction="deleteGarage" style="document" />
+      <wsdl:input name="deleteGarage">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteGarageResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadCar">
+      <soap:operation soapAction="load_car" style="document" />
+      <wsdl:input name="loadCar">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="loadCarResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadOwner">
+      <soap:operation soapAction="load_owner" style="document" />
+      <wsdl:input name="loadOwner">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="loadOwnerResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadGarage">
+      <soap:operation soapAction="load_garage" style="document" />
+      <wsdl:input name="loadGarage">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="loadGarageResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addNewOwner">
+      <soap:operation soapAction="add_new_owner" style="document" />
+      <wsdl:input name="addNewOwner">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addNewOwnerResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCar">
+      <soap:operation soapAction="delete_car" style="document" />
+      <wsdl:input name="deleteCar">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deleteCarResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ParkingService">
+    <wsdl:port name="ParkingAppManagerPort" binding="tns:ParkingServiceSoapBinding">
+      <soap:address location="http://localhost:8080/ParkingManagerApp/ParkingService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,47 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>ParkingManagerAplication</Name>
+    <Description>Описание шаблона:</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ParkingManagerAplication</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+    <PreviewImage>__PreviewImage.png</PreviewImage>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="ParkingManagerAplication.csproj" File="ParkingManagerAplication.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="app.config">app.config</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Form1.cs">Form1.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Form1.Designer.cs">Form1.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Form1.resx">Form1.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="Icons8-Ios7-Household-Garage.ico">Icons8-Ios7-Household-Garage.ico</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="ParkingManagerAplication_TemporaryKey.pfx">ParkingManagerAplication_TemporaryKey.pfx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.resx">Resources.resx</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.settings">Settings.settings</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.Designer.cs">Settings.Designer.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Service References" TargetFolderName="Service References">
+        <Folder Name="ParkingManagerService" TargetFolderName="ParkingManagerService">
+          <ProjectItem ReplaceParameters="false" TargetFileName="configuration.svcinfo">configuration.svcinfo</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="configuration91.svcinfo">configuration91.svcinfo</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ParkingService.wsdl">ParkingService.wsdl</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Reference.svcmap">Reference.svcmap</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ParkingManagerAplication.ParkingManagerService.car.datasource">ParkingManagerAplication.ParkingManagerService.car.datasource</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ParkingManagerAplication.ParkingManagerService.garage.datasource">ParkingManagerAplication.ParkingManagerService.garage.datasource</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ParkingManagerAplication.ParkingManagerService.owner.datasource">ParkingManagerAplication.ParkingManagerService.owner.datasource</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Reference.cs">Reference.cs</ProjectItem>
+        </Folder>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
